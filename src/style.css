@@ -1,5 +1,5 @@
-#consoleDisplayBoardMask{
-    width:100vw;
+#consoleDisplayBoardMask {
+    width: 100vw;
     height: 100vh;
     display: flex;
     /*justify-content: center;*/
@@ -8,45 +8,75 @@
     background-color: #333333;
     flex-direction: column;
     transition: all 0.4s;
-    left:2.5vh;
-    top:2.5vh;
+    left: 2.5vh;
+    top: 2.5vh;
     box-sizing: border-box;
     overflow: hidden;
 }
-#consoleDisplayBoardMask:not(.hidden){
-    left: 0!important;
-    top: 0!important;
+
+#consoleDisplayBoardMask:not(.hidden) {
+    left: 0 !important;
+    top: 0 !important;
     padding-bottom: 10vh;
 }
-#consoleDisplayBoardMask.hidden{
+
+#consoleDisplayBoardMask.hidden {
     width: 5vh;
     height: 5vh;
     overflow: hidden;
     border-radius: 34%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     opacity: 0.8;
 }
-#consoleDisplayBoardMask.hidden>#consoleDisplayBoardHeader,
-#consoleDisplayBoardMask.hidden>#consoleDisplayBoard{
+
+#consoleDisplayBoardMask.hidden > #consoleDisplayBoardHeader,
+#consoleDisplayBoardMask.hidden > #consoleDisplayBoard {
     display: none;
 }
-#consoleDisplayBoardMask.hidden>#consoleDisplayBoardIcon{
+
+#consoleDisplayBoardMask.hidden > #consoleDisplayBoardIcon {
     display: flex;
 }
-#consoleDisplayBoardHeader{
+
+#consoleDisplayBoardHeader {
     padding: 20px;
     display: flex;
     justify-content: space-evenly;
     width: inherit;
     font-size: 1.8vh;
 }
-#consoleDisplayBoardHeader>.button{
+
+#consoleDisplayBoardHeader > .button {
     padding: 15px 40px;
     background-color: #267f6f;
     border-radius: 10px;
     color: #FFFFFF;
 }
-#consoleDisplayBoard{
+
+#consoleFloat {
+    position: fixed;
+    top: 20vh;
+    max-width: 80vw;
+    padding: 10px 15px;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-size: 2vh;
+    background-color: #222222;
+    transition: all 0.4s;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    overflow-wrap:anywhere;
+    overflow: hidden;
+    opacity: 1;
+    pointer-events: all;
+}
+#consoleFloat.hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#consoleDisplayBoard {
     width: 95vw;
     flex: 1 0 0;
     background-color: #222222;
@@ -58,7 +88,8 @@
     flex-direction: column;
     overflow: auto;
 }
-#consoleDisplayBoardIcon{
+
+#consoleDisplayBoardIcon {
     width: 5vh;
     height: 5vh;
     display: none;
@@ -67,60 +98,93 @@
     justify-content: center;
     align-items: center;
 }
-.consoleLog{
+
+.consoleLog {
     display: flex;
     font-weight: bold;
-    overflow-wrap:anywhere;
+    overflow-wrap: anywhere;
     padding: 5px 10px;
     border-bottom: 1px solid #AAAAAA;
-    width: max-content;
+    width: inherit;
+    min-width: 100%;
+    box-sizing: border-box;
+    align-items: center;
 }
-.consoleLog>div{
+
+.consoleLog.error * {
+    color: red !important;
+}
+
+.consoleLog > div {
     display: inline-block;
     padding: 0 10px;
     color: #DDDDDD;
+    flex: 1 0 0;
 }
+
+.consoleLog > .invoke {
+    color: #FFFFFF;
+    flex: 0 0 auto;
+}
+
+.consoleLog > .point {
+    font-size: 30px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
 .consoleTree-item-value-content-number,
-.consoleLog>.consoleLog-number{
+.consoleLog > .consoleLog-number {
     color: #1decec;
     max-width: 70vw;
 }
+
 .consoleTree-item-value-content-string,
-.consoleLog>.consoleLog-string{
+.consoleLog > .consoleLog-string {
     color: #ed19b1;
     max-width: 70vw;
 }
-.consoleTree{
+
+.consoleTree {
     display: flex;
     flex-direction: column;
 }
-.consoleTree-item{
+
+.consoleTree-item {
     padding-left: 40px;
 }
-.consoleTree-item-key{
+
+.consoleTree-item-key {
     padding: 0 10px;
     display: inline-block;
     color: #e87373;
 }
-.consoleTree-item-value{
+
+.consoleTree-item-value {
     display: inline-block;
 }
-.consoleTree-item-value.unfold{
+
+.consoleTree-item-value.unfold {
     display: block;
     padding-left: 40px;
 }
-.consoleTree-item-value.fold>.consoleTree-item-value-fold{
+
+.consoleTree-item-value.fold > .consoleTree-item-value-fold {
     display: block;
 }
-.consoleTree-item-value.unfold>.consoleTree-item-value-fold{
+
+.consoleTree-item-value.unfold > .consoleTree-item-value-fold {
     display: none;
 }
-.consoleTree-item-value.fold>.consoleTree-item-value-content{
+
+.consoleTree-item-value.fold > .consoleTree-item-value-content {
     display: none;
 }
-.consoleTree-item-value.unfold>.consoleTree-item-value-content{
+
+.consoleTree-item-value.unfold > .consoleTree-item-value-content {
     display: block;
 }
-.consoleTree-item-value-content-object{
+
+.consoleTree-item-value-content-object {
     color: #e5cb72;
 }

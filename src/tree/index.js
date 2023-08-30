@@ -1,9 +1,5 @@
 const getRandomElement = (array) => array[Math.floor(Math.random() * array.length)]
-const parser = document.createElement('div');
-const parseHTMLString = (htmlString) => {
-    parser.innerHTML = htmlString
-    return parser.children
-}
+import {parseHTMLString} from '../utils'
 const getObjectFoldValue=(data)=>{
     const keys = Object.keys(data)
     const isObject=data.constructor===Object
